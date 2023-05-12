@@ -30,7 +30,7 @@ jobs:
         env:
           APP: "kbot"
           REGISTRY: ghcr.io/${{ github.repository }}
-        run: make image push TARGETARCH=$TARGETARCH
+        run: make image push TARGETARCH=$TARGETARCH REGISTRY=$REGISTRY
       - name: Clean
         run: make clean TARGETARCH=$TARGETARCH
       
