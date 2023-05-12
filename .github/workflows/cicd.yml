@@ -28,11 +28,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build&Push
         env:
-          APP: "kbot"
           REGISTRY: ghcr.io/${{ github.repository }}
         run: make image push TARGETARCH=$TARGETARCH REGISTRY=$REGISTRY
       - name: Clean
-        run: make clean TARGETARCH=$TARGETARCH
+        run: make clean TARGETARCH=$TARGETARCH REGISTRY=$REGISTRY
       
   cd:
     name: CD
